@@ -1,1 +1,1 @@
-document.getElementbyId("id_bussiness_version").innerHeight = "Bussines version: 2018.10.15.0";
+document.getElementbyId("id_bussiness_version").innerHTML = "Bussines version: 2018.10.15.0";
