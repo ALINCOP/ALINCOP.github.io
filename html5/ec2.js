@@ -1,28 +1,52 @@
-document.getElementById("id_bussiness_version").innerHTML = "Bussiness version: 2018.10.15.1";
+document.getElementById("id_bussiness_version").innerHTML = "Bussiness version: 2018.10.15.2";
+
+
+function citire()
+{
+// read values
+	var _a = document.getElementById("id_a").value;
+	var _b = document.getElementById("id_b").value;
+	var _c = document.getElementById("id_c").value;
+	var coeficienti= {a:_a,b:_b,c:_c};
+	return coeficienti;
+
+}
+
+
+function solve(coeficienti)
+{
+	
+	// solve
+	var delta = (coeficienti.b*coeficienti.b)-(4*(coeficienti.a*coeficienti.c));
+	var x1_re, x2_re, x1_im, x2_im;
+	if(delta>=0)
+	{
+		x1_re = (-coeficienti.b + Math.sqrt(delta)) / (2*coeficienti.a);
+		x2_re = (-coeficienti.b - Math.sqrt(delta)) / (2*coeficienti.a);
+		x1_im = x2_im = 0;
+	}
+	else
+	{
+		x1_re = -coeficienti.b / (2*coeficienti.a);
+		x1_im = Math.sqrt(-delta) / (2*coeficienti.a);
+		x2_re = -coeficienti.b / (2*coeficienti.a);
+		x2_im = -Math.sqrt(-delta) / (2*coeficienti.a);
+	}
+	var x1={re:x1_re,im:x1_im};
+	var x2={re:x2_re,im:x2_im};
+	var solutii={x1:x1,x2:x2};
+	return solutii;
+	
+}
+function afisare(solutii)
+{
+	document.getElementById("id_x1").innerHTML = solutii.x1.re + " + " + solutii.x1.im + " i ";
+	document.getElementById("id_x2").innerHTML = solutii.x2.re + " + " + solutii.x2.im + " i ";
+}
 
 function rezolva()
 {
-	var a = document.getElementById("id_a").value;
-	var b = document.getElementById("id_b").value;
-	var c = document.getElementById("id_c").value;
-	var delta = b*b-(4*a*c);
-	var x1_re,x2_re,x1_im,x2_im;
-	if(delta>=0)
-		{
-			x1=(-b+Math.sqrt(delta))/(2*a);
-			x2=(-b-Math.sqrt(delta))/(2*a);
-			x1_im=x2_im=0;
-		}
-	else {
-		x1_re=-b/(2*a);
-		x1_im=Math.sqrt(-delta)/(2*a);
-		x2_re=-b/(2*a);
-		x2_im=-Math.sqrt(-delta)/(2*a);
-
-	}
-
-	//scriere
-
-	document.getElementById("id_x1").innerHTML = x1_re+ " "+ x1_im+ "i";
-	document.getElementById("id_x2").innerHTML = x2_re+ " "+ x2_im+ "i";
+	var coeficienti = citire();
+	var solutii=solve(coeficienti);
+	afisare(solutii);
 }
