@@ -1,4 +1,4 @@
-document.getElementById("id_logic_version").innerHTML = "Bussiness version: 2018.10.29.2";
+document.getElementById("id_logic_version").innerHTML = "Bussiness version: 2018.10.29.1";
 window.addEventListener("deviceorientation", on_device_orientation);
 //--------------------------------
 function on_device_orientation(e)
