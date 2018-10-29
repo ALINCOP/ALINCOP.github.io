@@ -1,5 +1,5 @@
 //----------------------
-function is_prim(n)
+function is_prime(n)
 {
 	for(var i=2;i*i<=n;i++)
 		if(n%i==0)
