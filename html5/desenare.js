@@ -24,7 +24,7 @@ function start()
 	document.getElementById("id_start_button").disabled = true;
 	document.getElementById("id_stop_button").disabled = false;
 
-	var my_worker = new Worker("calcul_prime.js");
+	my_worker = new Worker("calcul_prime.js");
 	my_worker.onmessage = function(e)
 	{
 		document.getElementById("id_prime").innerHTML = e.data;
@@ -42,5 +42,6 @@ function stop()
 	document.getElementById("id_stop_button").disabled = true;
 	clearInterval(id_timer);
 
+	my_worker.postMessage("stop");
 
 }
