@@ -1,4 +1,4 @@
-document.getElementById("id_bussiness_version").innerHTML = "Bussiness version: 2018.26.11.7";
+document.getElementById("id_bussiness_version").innerHTML = "Bussiness version: 2018.26.11.8";
 var canvas = document.getElementById("id_canvas");
 canvas.addEventListener("touchstart",on_touch_start);
 canvas.addEventListener("touchmove",on_touch_move);
